@@ -19,19 +19,17 @@ from django.contrib import admin
 
 
 urlpatterns = [
-     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+     
+    url(r'^$',include('pricphma.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.STATIC_ROOT
     }),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT
     }), 
-    url(r'',include('pricphma.urls')),
-    url(r'^admin/$', include(admin.site.urls)),
-     
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-'''if settings.DEBUG:
+if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)'''
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
