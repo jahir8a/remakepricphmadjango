@@ -1,11 +1,11 @@
+from django.conf.urls import url
+from . import views
 '''
 Created on 1 jul. 2017
 
 @author: Figueroa8a
 '''
 
-from django.conf.urls import url
-
 urlpatterns = [
-    url(r'^estado_cuenta/', "", name=""),
+    url(r'', views.post_list, name="lista_slider"),
 ]

@@ -4,3 +4,4 @@ from pricphma import models
 
 admin.site.register(models.Docente)
 admin.site.register(models.EstadoCuenta)
+admin.site.register(models.Slider)
